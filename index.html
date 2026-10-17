@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSV Cleaner — Clean CSV files in your browser</title>
+  <meta name="description" content="Free private CSV cleaner. Remove duplicates, trim spaces, delete empty rows and columns, then download the cleaned file." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>CSV Cleaner</h1>
+    <p>Private, browser-based CSV cleanup. Your files never leave your device.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <label class="upload-box" for="fileInput">
+        <strong>Choose CSV file(s)</strong>
+        <span>or drag and drop them here</span>
+        <input id="fileInput" type="file" accept=".csv,text/csv" multiple hidden />
+      </label>
+
+      <div class="options">
+        <label>
+          <input type="checkbox" id="trimSpaces" checked />
+          Trim spaces from values and headers
+        </label>
+
+        <label>
+          <input type="checkbox" id="removeEmptyRows" checked />
+          Remove completely empty rows
+        </label>
+
+        <label>
+          <input type="checkbox" id="removeDuplicates" checked />
+          Remove duplicate rows
+        </label>
+
+        <label>
+          <input type="checkbox" id="normalizeCase" />
+          Convert headers to lowercase
+        </label>
+
+        <label>
+          Columns to delete
+          <input
+            id="columnsToDelete"
+            type="text"
+            placeholder="Example: phone, notes"
+          />
+        </label>
+      </div>
+
+      <button id="cleanButton">Clean CSV</button>
+      <button id="downloadButton" disabled>Download cleaned CSV</button>
+    </section>
+
+    <section class="card">
+      <h2>Preview</h2>
+      <div id="status"></div>
+      <div class="table-wrap">
+        <table id="previewTable"></table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      Built as a free, private web app. CSV parsing and cleaning happen entirely
+      in your browser.
+    </p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
